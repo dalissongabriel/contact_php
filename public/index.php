@@ -44,10 +44,11 @@ $request = $creator->fromGlobals();
  */
 $ControllerClass = $routes[$resource];
 
+$controller = new $ControllerClass();
 /**
  * Get Response
  */
-$response = $ControllerClass->handle($request);
+$response = $controller->handle($request);
 
 /**
  * Add headers in response
