@@ -1,4 +1,5 @@
 <?php
 
+use App\Infra\Controllers\ContactFormController;
 
-return ["/contato"=>]
+return ["/contato"=>ContactFormController::class];
