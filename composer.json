@@ -1,0 +1,11 @@
+{
+    "name": "alissongabriel/netshow_testephp",
+    "description": "Teste PHP - Netshow.me",
+    "authors": [
+        {
+            "name": "dalissongabriel",
+            "email": "alissongabrieldino@gmail.com"
+        }
+    ],
+    "require": {}
+}
