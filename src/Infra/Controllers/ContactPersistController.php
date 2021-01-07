@@ -4,8 +4,10 @@
 namespace App\Netshowme\Infra\Controllers;
 
 
+use App\Netshowme\Domain\Entity\ContactEntity;
 use \DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
+use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -32,11 +34,12 @@ class ContactPersistController implements RequestHandlerInterface
         $phone = filter_var($body['phone'], FILTER_SANITIZE_STRING);
         $file = $body['file'];
         $host = $_SERVER['REMOTE_ADDR'];
-        $createdAt = (new DateTimeImmutable())->format("Y-m-d H:i:s");
-
-        var_dump($name,$message,$email,$phone,$file,$host,$createdAt);
-        die();
 
 
+        $contact = new ContactEntity($name, $email, $message, $phone, $file, $host);
+        $this->entityManager->persist($contact);
+        $this->entityManager->flush();
+
+        return new Response(200,["Location"=>"/contato"]);
     }
 }

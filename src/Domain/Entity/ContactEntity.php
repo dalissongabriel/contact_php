@@ -17,17 +17,18 @@ class ContactEntity
     public function __construct(
         string $name,
         string $email,
-        \DateTimeImmutable $createdAt,
         string $message,
         string $phone,
-        string $file
+        string $file,
+        string $host
     )
     {
         $this->name = $name;
         $this->email = $email;
-        $this->createdAt = $createdAt;
+        $this->createdAt = (new DateTimeImmutable())->format("Y-m-d H:i:s");
         $this->message = $message;
         $this->phone = $phone;
         $this->file = $file;
+        $this->host = $host;
     }
 }
