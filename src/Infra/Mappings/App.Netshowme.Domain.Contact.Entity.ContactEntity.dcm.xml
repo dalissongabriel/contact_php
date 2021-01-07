@@ -1,5 +1,5 @@
 <doctrine-mapping>
-    <entity name="App\Netshowme\Domain\Entity\ContactEntity" table="contacts">
+    <entity name="App\Netshowme\Domain\Contact\Entity\ContactEntity" table="contacts">
         <id name="id" column="id" type="integer">
             <generator strategy="IDENTITY" />
         </id>

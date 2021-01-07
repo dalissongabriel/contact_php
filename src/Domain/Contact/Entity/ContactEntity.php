@@ -1,16 +1,16 @@
 <?php
 
 
-namespace App\Netshowme\Domain\Entity;
+namespace App\Netshowme\Domain\Contact\Entity;
 
-
+use App\Netshowme\Domain\Share\ValueObjects\Email;
 use DateTimeImmutable;
 
 class ContactEntity
 {
     private ?int $id = null;
     private string $name;
-    private string $email;
+    private Email $email;
     private string $createdAt;
     private string $message;
     private string $phone;
@@ -26,7 +26,7 @@ class ContactEntity
     )
     {
         $this->name = $name;
-        $this->email = $email;
+        $this->email = new Email($email);
         $this->createdAt = (new DateTimeImmutable())->format("Y-m-d H:i:s");
         $this->message = $message;
         $this->phone = $phone;
