@@ -4,6 +4,7 @@
 namespace App\Netshowme\Domain\Contact\Entity;
 
 use App\Netshowme\Domain\Share\ValueObjects\Email;
+use App\Netshowme\Domain\Share\ValueObjects\Phone;
 use DateTimeImmutable;
 
 class ContactEntity
@@ -13,7 +14,7 @@ class ContactEntity
     private Email $email;
     private string $createdAt;
     private string $message;
-    private string $phone;
+    private Phone $phone;
     private string $file;
 
     public function __construct(
@@ -29,7 +30,7 @@ class ContactEntity
         $this->email = new Email($email);
         $this->createdAt = (new DateTimeImmutable())->format("Y-m-d H:i:s");
         $this->message = $message;
-        $this->phone = $phone;
+        $this->phone = new Phone($phone);
         $this->file = $file;
         $this->host = $host;
     }
