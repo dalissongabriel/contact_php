@@ -4,8 +4,11 @@
 namespace App\Netshowme\Domain\Contact\Entity;
 
 use App\Netshowme\Domain\Share\ValueObjects\Email;
+use App\Netshowme\Domain\Share\ValueObjects\File;
 use App\Netshowme\Domain\Share\ValueObjects\Phone;
 use DateTimeImmutable;
+use Psr\Http\Message\UploadedFileInterface;
+
 
 class ContactEntity
 {
@@ -15,14 +18,14 @@ class ContactEntity
     private DateTimeImmutable $createdAt;
     private string $message;
     private Phone $phone;
-    private string $file;
+    private File $file;
 
     public function __construct(
         string $name,
         string $email,
         string $message,
         string $phone,
-        string $file,
+        UploadedFileInterface $file,
         string $host
     )
     {
@@ -31,7 +34,7 @@ class ContactEntity
         $this->createdAt = new DateTimeImmutable();
         $this->message = $message;
         $this->phone = new Phone($phone);
-        $this->file = $file;
+        $this->file = new File($file);
         $this->host = $host;
     }
 }

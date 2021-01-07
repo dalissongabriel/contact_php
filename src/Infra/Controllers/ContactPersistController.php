@@ -29,9 +29,9 @@ class ContactPersistController implements RequestHandlerInterface
         $body = $request->getParsedBody();
         $name = filter_var($body["name"], FILTER_SANITIZE_STRING);
         $message = filter_var($body['message'],FILTER_SANITIZE_STRING);
-        $email = $body['email'];
+        $email = filter_var($body['email'], FILTER_SANITIZE_STRING);
         $phone = filter_var($body['phone'], FILTER_SANITIZE_STRING);
-        $file = $body['file'];
+        $file = $request->getUploadedFiles()["file"];
         $host = $_SERVER['REMOTE_ADDR'];
 
 
