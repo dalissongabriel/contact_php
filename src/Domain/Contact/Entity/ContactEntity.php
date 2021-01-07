@@ -12,7 +12,7 @@ class ContactEntity
     private ?int $id = null;
     private string $name;
     private Email $email;
-    private string $createdAt;
+    private DateTimeImmutable $createdAt;
     private string $message;
     private Phone $phone;
     private string $file;
@@ -28,7 +28,7 @@ class ContactEntity
     {
         $this->name = $name;
         $this->email = new Email($email);
-        $this->createdAt = (new DateTimeImmutable())->format("Y-m-d H:i:s");
+        $this->createdAt = new DateTimeImmutable();
         $this->message = $message;
         $this->phone = new Phone($phone);
         $this->file = $file;
