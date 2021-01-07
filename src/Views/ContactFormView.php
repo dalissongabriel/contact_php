@@ -22,7 +22,7 @@
 <main>
     <section id="formulario-contato">
         <h2>Formulário para contato</h2>
-        <form class="form" action="/contato/enviar">
+        <form class="form" action="/contato/enviar" method="post">
             <label for="name">Nome completo:</label>
             <input tabindex="3" name="name" id="name"  type="text" placeholder="Informe o seu nome completo" required/>
             <label for="email">E-mail:</label>
