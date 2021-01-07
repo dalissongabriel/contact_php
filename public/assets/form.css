@@ -1,0 +1,59 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.form input,
+.form textarea {
+    border: 1px solid #eee;
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+    background: #eee;
+    transition: 0.1s;
+    margin-bottom: 1.5rem;
+}
+
+.form input:hover,
+.form input:focus,
+.form textarea:hover,
+.form textarea:focus {
+    outline: none;
+    border-color: #fb1;
+    background: white;
+    box-shadow: 0 0 0 3px #fea;
+}
+
+.form label {
+    display: block;
+    font-size: 1rem;
+    line-height: 1;
+    padding-bottom: .5rem;
+}
+
+.form input[type=submit] {
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.4rem;
+    background: #fb1;
+    color: #3c2400;
+    padding: 0.8rem 1.2rem;
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+.form input[type=submit]:hover,
+.form input[type=submit]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #fea, 0 0 0 4px #fb1;
+}
+
+.form input[type=submit]:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}

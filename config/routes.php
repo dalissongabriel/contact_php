@@ -1,5 +1,5 @@
 <?php
 
-use App\Infra\Controllers\ContactFormController;
+use App\Netshowme\Infra\Controllers\ContactFormController;
 
-return ["/contato"=>ContactFormController::class];
+return ["/contato"=> ContactFormController::class];
