@@ -4,12 +4,14 @@
 namespace App\Netshowme\Domain\Entity;
 
 
+use DateTimeImmutable;
+
 class ContactEntity
 {
     private ?int $id = null;
     private string $name;
     private string $email;
-    private \DateTimeImmutable $createdAt;
+    private string $createdAt;
     private string $message;
     private string $phone;
     private string $file;
