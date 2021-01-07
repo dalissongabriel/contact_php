@@ -19,16 +19,25 @@ class File
         if(!FileValidator::isValid($file->getSize(), $file->getClientMediaType())) {
             throw new InvalidFileException($file);
         }
-        $targetPath = __DIR__ . "/../../../../uploads/";
-        $random = md5(uniqid(rand(), true));
-        $name = $random  . $file->getClientFilename();
-        $filename = $targetPath . $name;
-        $file->moveTo($filename);
+        $this->generateRandomName($file);
+        $this->saveFileInDisk($file);
 
-        $this->name = $name;
         $this->type = $file->getClientMediaType();
         $this->size = $file->getSize();
     }
+
+    private function saveFileInDisk(UploadedFileInterface $file)
+    {
+        $targetPath = __DIR__ . "/../../../../uploads/";
+        $filename = $targetPath . $this->name;
+        $file->moveTo($filename);
+    }
+
+    private function generateRandomName(UploadedFileInterface $file)
+    {
+        $this->name = md5(uniqid(rand(), true)) . $file->getClientFilename();
+    }
+
     public function __toString(): string
     {
         return $this->name;
