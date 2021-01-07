@@ -1,0 +1,12 @@
+<doctrine-mapping>
+    <entity name="App\Netshowme\Domain\Entity\ContactEntity" table="contacts">
+        <id name="id" column="id" type="integer">
+            <generator strategy="IDENTITY" />
+        </id>
+        <field name="name"  column="name" type="string"  />
+        <field name="email"  column="email" type="string"  />
+        <field name="message"  column="message" type="string"  />
+        <field name="phone"  column="phone" type="string"  />
+        <field name="file"  column="file" type="string"  />
+    </entity>
+</doctrine-mapping>

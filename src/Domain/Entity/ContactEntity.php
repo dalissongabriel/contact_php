@@ -6,7 +6,7 @@ namespace App\Netshowme\Domain\Entity;
 
 class ContactEntity
 {
-
+    private ?int $id = null;
     private string $name;
     private string $email;
     private \DateTimeImmutable $createdAt;
