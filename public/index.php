@@ -44,7 +44,15 @@ $request = $creator->fromGlobals();
  */
 $ControllerClass = $routes[$resource];
 
-$controller = new $ControllerClass();
+
+/** @var ContainerInterface $container */
+$container = require_once __DIR__ . "/../config/dependencies.php";
+
+/** @var RequestHandlerInterface $controlador */
+
+$controller = $container->get($ControllerClass);
+
+
 /**
  * Get Response
  */
