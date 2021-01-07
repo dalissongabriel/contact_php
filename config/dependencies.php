@@ -8,3 +8,5 @@ $containerBuilder = new ContainerBuilder();
 $containerBuilder->addDefinitions([
     EntityManagerInterface::class => fn() => (new EntityManagerCreator())->getEntityManager()
 ]);
+
+return $containerBuilder->build();
