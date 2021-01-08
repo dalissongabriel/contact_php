@@ -8,10 +8,11 @@ use App\Netshowme\Domain\Contact\Entity\Contact;
 use App\Netshowme\Domain\Share\Exceptions\InvalidEmailException;
 use Nyholm\Psr7\UploadedFile;
 use PHPUnit\Framework\TestCase;
+use function DI\string;
 
 class ContactTest extends TestCase
 {
-    public function testMustEnsureContactHasEmailAddress()
+    public function testMustEnsureContactHasRequiredFields()
     {
 
         $name="test";
@@ -21,7 +22,8 @@ class ContactTest extends TestCase
         $host="127.0.0.1";
 
         $contact = new Contact($name, $email, $message, $phone, $host);
-        $this->assertSame("test@test.com",(string) $contact->getEmail());
+        $this->assertSame("test@test.com", (string) $contact->getEmail());
+        $this->assertSame("(99) 999999999", (string) $contact->getPhone());
     }
 
     public function testMustEnsureContactThrownExceptionWhenInvalidEmail()
@@ -35,4 +37,5 @@ class ContactTest extends TestCase
 
         $contact = new Contact($name, $email, $message, $phone, $host);
     }
+
 }

@@ -59,4 +59,9 @@ class Contact
     {
         return $this->email;
     }
+
+    public function getPhone(): Phone
+    {
+        return $this->phone;
+    }
 }
