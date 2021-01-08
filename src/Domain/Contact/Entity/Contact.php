@@ -25,7 +25,6 @@ class Contact
         string $email,
         string $message,
         string $phone,
-        UploadedFileInterface $file,
         string $host
     )
     {
@@ -34,7 +33,6 @@ class Contact
         $this->createdAt = new DateTimeImmutable();
         $this->message = $message;
         $this->phone = new Phone($phone);
-        $this->file = new File($file);
         $this->host = $host;
     }
     public  function getFullMessage(): string
@@ -51,4 +49,14 @@ class Contact
         return $this->file;
     }
 
+    public function addFile(UploadedFileInterface $uploadedFile): self
+    {
+        $this->file = $uploadedFile;
+        return $this;
+    }
+
+    public function getEmail(): Email
+    {
+        return $this->email;
+    }
 }

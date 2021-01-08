@@ -15,7 +15,7 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\Netshowme\\": "tests/"
-        }   
+        }
     },
     "require": {
         "doctrine/orm": "^2.8",

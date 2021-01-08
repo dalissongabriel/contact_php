@@ -36,9 +36,9 @@ class SendContactUseCase
             $contactDTO->email,
             $contactDTO->message,
             $contactDTO->phone,
-            $contactDTO->file,
             $contactDTO->host
         );
+        $contact->addFile($contactDTO->file);
 
         $this->contactRepository->add($contact);
 
