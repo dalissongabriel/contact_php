@@ -7,10 +7,12 @@ namespace App\Netshowme\Infra\Contact\Services;
 use App\Netshowme\Domain\Contact\Entity\Contact;
 use App\Netshowme\Domain\Contact\Services\SendEmailServiceInterface;
 use Swift_Mailer;
+use Swift_Message;
+use Swift_SmtpTransport;
 
 class SendEmailSwiftMailerService implements SendEmailServiceInterface
 {
-    public function sendFor(Contact $contact)
+    public function send(Contact $contact)
     {
         $smpt = isset($_ENV["SENDER_EMAIL_SMPT_TRANSPORT"])
             ? $_ENV["SENDER_EMAIL_SMPT_TRANSPORT"]
@@ -30,12 +32,12 @@ class SendEmailSwiftMailerService implements SendEmailServiceInterface
         }
         $receiver = $_ENV["RECEIVER_EMAIL_ADDRESS"];
 
-        if (isset($_ENV["SENDER_EMAIL_PASSWORD"])) {
+        if (!isset($_ENV["SENDER_EMAIL_PASSWORD"])) {
             throw new \UnexpectedValueException("No password sender provided for send email");
         }
         $password = $_ENV["SENDER_EMAIL_PASSWORD"];
 
-        $transport = (new Swift_SmtpTransport($smpt, $port))
+        $transport = (new Swift_SmtpTransport('smtp.googlemail.com', 465, 'ssl'))
             ->setUsername($username)
             ->setPassword($password)
         ;
@@ -48,5 +50,10 @@ class SendEmailSwiftMailerService implements SendEmailServiceInterface
             ->setBody($contact->getFullMessage());
         ;
         $result = $mailer->send($message);
+
+        if ($result !== 1) {
+            throw new \Exception("Error to send e-mail");
+        }
+
     }
 }

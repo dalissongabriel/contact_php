@@ -8,5 +8,5 @@ use App\Netshowme\Domain\Contact\Entity\Contact;
 
 interface SendEmailServiceInterface
 {
-    public function sendFor(Contact $contact);
+    public function send(Contact $contact);
 }
