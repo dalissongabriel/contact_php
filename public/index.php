@@ -55,7 +55,7 @@ $ControllerClass = $routes[$resource];
 /** @var ContainerInterface $container */
 $container = require_once __DIR__ . "/../config/dependencies.php";
 
-/** @var RequestHandlerInterface $controlador */
+/** @var RequestHandlerInterface $controller */
 
 $controller = $container->get($ControllerClass);
 
