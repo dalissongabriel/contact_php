@@ -45,4 +45,10 @@ class Contact
         "IP: {$this->host} \n" .
         "Mensagem: {$this->message}.";
     }
+
+    public function getFile(): File
+    {
+        return $this->file;
+    }
+
 }

@@ -11,6 +11,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class File
 {
     private string $name;
+    private string $filename;
     private int $size;
     private string $type;
 
@@ -29,18 +30,30 @@ class File
     private function saveFileInDisk(UploadedFileInterface $file)
     {
         $targetPath = __DIR__ . "/../../../../uploads/";
-        $filename = $targetPath . $this->name;
+        $filename = $targetPath . $this->filename;
         $file->moveTo($filename);
     }
 
     private function generateRandomName(UploadedFileInterface $file)
     {
-        $this->name = md5(uniqid(rand(), true)) . $file->getClientFilename();
+        $this->name =  $file->getClientFilename();
+        $this->filename = md5(uniqid(rand(), true)) . $this->name;
+    }
+
+    public function getFileName(): string
+    {
+        return $this->filename;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 
     public function __toString(): string
     {
         return $this->name;
     }
+
 
 }

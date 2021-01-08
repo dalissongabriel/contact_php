@@ -6,6 +6,7 @@ namespace App\Netshowme\Infra\Contact\Services;
 
 use App\Netshowme\Domain\Contact\Entity\Contact;
 use App\Netshowme\Domain\Contact\Services\SendEmailServiceInterface;
+use Swift_Attachment;
 use Swift_Mailer;
 use Swift_Message;
 use Swift_SmtpTransport;
@@ -48,7 +49,13 @@ class SendEmailSwiftMailerService implements SendEmailServiceInterface
             ->setFrom([$username])
             ->setTo([$receiver])
             ->setBody($contact->getFullMessage());
-        ;
+
+        $message->attach(
+            Swift_Attachment::fromPath(
+                __DIR__ . "/../../../../uploads/" .
+                $contact->getFile()->getFileName()
+            )->setFilename($contact->getFile()->getName()));
+
         $result = $mailer->send($message);
 
         if ($result !== 1) {
