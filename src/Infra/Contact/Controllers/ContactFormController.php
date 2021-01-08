@@ -3,8 +3,7 @@
 
 namespace App\Netshowme\Infra\Contact\Controllers;
 
-
-use App\Netshowme\Infra\Helpers\HtmlRenderHelper;
+use App\Netshowme\Infra\Share\Helpers\HtmlRenderHelper;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -15,7 +14,7 @@ class ContactFormController implements RequestHandlerInterface
     use HtmlRenderHelper;
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $data = $this->render("ContactFormView.php");
+        $data = $this->render("Contact/ContactFormView.php");
         return New Response(200, [] /*Headers*/, $data);
     }
 }
