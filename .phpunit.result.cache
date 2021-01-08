@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":144:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:1:{s:85:"Tests\Netshowme\Unit\Domain\Contact\ContactTest::testMustEnsureContactHasEmailAddress";d:0.01;}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":263:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:2:{s:85:"Tests\Netshowme\Unit\Domain\Contact\ContactTest::testMustEnsureContactHasEmailAddress";d:0.003;s:101:"Tests\Netshowme\Unit\Domain\Contact\ContactTest::testMustEnsureContactThrownExceptionWhenInvalidEmail";d:0.001;}}}
