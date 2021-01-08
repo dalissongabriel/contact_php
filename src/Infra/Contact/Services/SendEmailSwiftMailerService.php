@@ -19,26 +19,21 @@ class SendEmailSwiftMailerService implements SendEmailServiceInterface
         $port = isset($_ENV["SENDER_EMAIL_SMPT_PORT"])
             ? (int) $_ENV["SENDER_EMAIL_SMPT_PORT"]
             : 465;
-        $username = "";
-        if (isset($_ENV["SENDER_EMAIL_USERNAME"])) {
-            $username = $_ENV["SENDER_EMAIL_USERNAME"];
-        } else {
-            throw new \UnexpectedValueException("No username sender provided for send email");
-        }
 
-        $receiver = "";
-        if (isset($_ENV["RECEIVER_EMAIL_ADDRESS"])) {
-            $receiver = $_ENV["RECEIVER_EMAIL_ADDRESS"];
-        } else {
+        if (!isset($_ENV["SENDER_EMAIL_USERNAME"])) {
+            throw new \UnexpectedValueException("No sender provided for send email");
+        }
+        $username = $_ENV["SENDER_EMAIL_USERNAME"];
+
+        if (!isset($_ENV["RECEIVER_EMAIL_ADDRESS"])) {
             throw new \UnexpectedValueException("No receiver provided for send email");
         }
+        $receiver = $_ENV["RECEIVER_EMAIL_ADDRESS"];
 
-        $password = "";
         if (isset($_ENV["SENDER_EMAIL_PASSWORD"])) {
-            $password = $_ENV["SENDER_EMAIL_PASSWORD"];
-        } else {
             throw new \UnexpectedValueException("No password sender provided for send email");
         }
+        $password = $_ENV["SENDER_EMAIL_PASSWORD"];
 
         $transport = (new Swift_SmtpTransport($smpt, $port))
             ->setUsername($username)
