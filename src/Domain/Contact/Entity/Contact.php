@@ -10,7 +10,7 @@ use DateTimeImmutable;
 use Psr\Http\Message\UploadedFileInterface;
 
 
-class ContactEntity
+class Contact
 {
     private ?int $id = null;
     private string $name;
@@ -36,5 +36,13 @@ class ContactEntity
         $this->phone = new Phone($phone);
         $this->file = new File($file);
         $this->host = $host;
+    }
+    public  function getFullMessage(): string
+    {
+         return "Nome: {$this->name} \n" .
+        "E-mail para contato: {$this->email} \n" .
+        "Telefone para contato: {$this->phone} \n" .
+        "IP: {$this->host} \n" .
+        "Mensagem: {$this->message}.";
     }
 }

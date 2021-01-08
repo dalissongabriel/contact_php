@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Netshowme\Infra\Controllers;
+namespace App\Netshowme\Infra\Contact\Controllers;
 
 
-use App\Netshowme\Domain\Contact\Entity\ContactEntity;
+use App\Netshowme\Domain\Contact\Entity\Contact;
 use Doctrine\ORM\EntityManagerInterface;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
@@ -35,7 +35,7 @@ class ContactPersistController implements RequestHandlerInterface
         $host = $_SERVER['REMOTE_ADDR'];
 
 
-        $contact = new ContactEntity($name, $email, $message, $phone, $file, $host);
+        $contact = new Contact($name, $email, $message, $phone, $file, $host);
         $this->entityManager->persist($contact);
         $this->entityManager->flush();
 

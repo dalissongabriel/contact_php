@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Netshowme\Infra\Controllers;
+namespace App\Netshowme\Infra\Contact\Controllers;
 
 
 use App\Netshowme\Infra\Helpers\HtmlRenderHelper;

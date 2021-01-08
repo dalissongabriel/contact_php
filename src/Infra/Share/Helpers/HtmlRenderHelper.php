@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Netshowme\Infra\Helpers;
+namespace App\Netshowme\Infra\Contact\Helpers;
 
 trait HtmlRenderHelper
 {
