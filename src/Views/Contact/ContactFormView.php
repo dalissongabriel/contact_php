@@ -8,33 +8,38 @@
     <title>Teste PHP - Entre em contato</title>
     <link rel="stylesheet" href="/assets/app.css">
     <link rel="stylesheet" href="/assets/form.css">
+    <link rel="stylesheet" href="/assets/contact.css">
 </head>
 <body>
 <header class="header">
-    <h1>Teste desenvolvedor PHP</h1>
-    <nav>
-        <ul >
-            <li tabindex="1"><a tabindex="-1" href="#formulario-contato">Formulário para contato</a></li>
-            <li tabindex="2"><a tabindex="-1"  href="#sobre">Sobre o teste</a></li>
-        </ul>
-    </nav>
+    <div class="wrapper">
+        <h1 class="main-title">Teste desenvolvedor PHP</h1>
+        <nav>
+            <ul >
+                <li tabindex="1"><a tabindex="-1" href="#formulario-contato">Formulário para contato</a></li>
+                <li tabindex="2"><a tabindex="-1"  href="#sobre">Sobre o teste</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 <main>
     <section id="formulario-contato">
-        <h2>Formulário para contato</h2>
-        <form class="form" action="/contato/enviar" method="post" enctype="multipart/form-data">
-            <label for="name">Nome completo:</label>
-            <input tabindex="3" name="name" id="name"  type="text" placeholder="Informe o seu nome completo" required/>
-            <label for="email">E-mail:</label>
-            <input name="email" id="email" type="email" placeholder="Informe o seu e-mail mais utilizado" required>
-            <label for="phone">Telefone/Celular:</label>
-            <input name="phone" id="phone" type="tel"  placeholder="Informe o seu telefone/celular para contato" required>
-            <label for="message">Mensagem:</label>
-            <textarea name="message" id="message" placeholder="Informe a mensagem que deseja nos enviar" required></textarea>
-            <label for="file">Anexo:</label>
-            <input type="file"  id="file" name="file" accept=".doc, .docx, .odt, application/pdf, text/plain">
-            <input type="submit" value="Enviar">
-        </form>
+        <div>
+            <h2>Formulário para contato</h2>
+            <form class="form" action="/contato/enviar" method="post" enctype="multipart/form-data">
+                <label for="name">Nome completo:</label>
+                <input tabindex="3" name="name" id="name"  type="text" placeholder="Informe o seu nome completo" required/>
+                <label for="email">E-mail:</label>
+                <input name="email" id="email" type="email" placeholder="Informe o seu e-mail mais utilizado" required>
+                <label for="phone">Telefone/Celular:</label>
+                <input name="phone" id="phone" type="tel"  placeholder="Informe o seu telefone/celular para contato" required>
+                <label for="message">Mensagem:</label>
+                <textarea name="message" id="message" placeholder="Informe a mensagem que deseja nos enviar" required></textarea>
+                <label for="file">Anexo:</label>
+                <input type="file"  id="file" name="file" accept=".doc, .docx, .odt, application/pdf, text/plain">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
     </section>
     <section id="sobre">
         <h2>Sobre o teste</h2>

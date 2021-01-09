@@ -1,0 +1,54 @@
+
+
+@media (min-width: 50rem) {
+    .header .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .header  .wrapper nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        vertical-align: center;
+        width: 100%;
+        height: 100%;
+    }
+    #formulario-contato {
+        margin: 0 auto;
+        max-width: 1200px;
+        flex-shrink: 2;
+        display: grid;
+        grid-template-columns: 2fr 1.7fr;
+        min-height: 100vh;
+        gap: 2rem;
+    }
+
+    #formulario-contato::before {
+        flex-shrink: 1;
+        content: '';
+        display: block;
+        border-radius: 1rem;
+        background: url("/assets/img/contact_banner.jpg") no-repeat center center;
+        background-size: cover;
+    }
+    header h1.main-title {
+        font-size: 3rem;
+    }
+
+    main > section#sobre {
+        margin: 5rem auto;
+        max-width: 1200px;
+    }
+
+    main > section#sobre > p {
+        text-indent: 50px;
+        line-height: 1.9rem;
+        margin-bottom: 2rem;
+    }
+
+
+}

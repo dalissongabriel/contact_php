@@ -20,11 +20,13 @@ ul {
     position: relative;
     box-sizing: border-box;
     top: 0;
+    border-bottom: 1px solid lightgrey;
+}
+.wrapper {
     display: flex;
     flex-direction: column;
     text-align: center;
     padding: 0.5rem;
-    border-bottom: 1px solid lightgrey;
 }
 
 .header h1 {
@@ -32,23 +34,23 @@ ul {
     color: #3D6996;
 }
 
-.header nav ul li:hover,
-.header nav ul li:focus {
+.header .wrapper nav ul li:hover,
+.header .wrapper nav ul li:focus {
     cursor: pointer;
     box-shadow: 0 0 0 1px #f17e00;
     border: none;
     outline: none;
     border-radius: 0.5rem;
 }
-.header nav ul li {
+.header .wrapper nav ul li {
     padding: 0.4rem;
     transition: .1s;
 }
 
-.header nav ul li a {
+.header .wrapper nav ul li a {
     position: relative;
 }
-.header nav ul {
+.header .wrapper nav ul {
     width: 80%;
     margin: auto;
     display: flex;
@@ -58,7 +60,7 @@ ul {
 }
 
 
-.header nav ul li a::after{
+.header .wrapper nav ul li a::after{
     content: '';
     position: absolute;
     left: 0;
