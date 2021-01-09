@@ -50,11 +50,13 @@ class SendEmailSwiftMailerService implements SendEmailServiceInterface
             ->setTo([$receiver])
             ->setBody($contact->getFullMessage());
 
-        $message->attach(
-            Swift_Attachment::fromPath(
-                __DIR__ . "/../../../../uploads/" .
-                $contact->getFile()->getFileName()
-            )->setFilename($contact->getFile()->getName()));
+        if($contact->hasFile()) {
+            $message->attach(
+                Swift_Attachment::fromPath(
+                    __DIR__ . "/../../../../uploads/" .
+                    $contact->getFile()->getFileName()
+                )->setFilename($contact->getFile()->getName()));
+        }
 
         $result = $mailer->send($message);
 

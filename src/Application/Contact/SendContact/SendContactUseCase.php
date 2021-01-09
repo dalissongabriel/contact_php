@@ -31,6 +31,7 @@ class SendContactUseCase
     public function execute(SendContactDTO $contactDTO)
     {
         $this->contactDTO = $contactDTO;
+
         $contact = new Contact(
             $contactDTO->name,
             $contactDTO->email,
@@ -38,7 +39,10 @@ class SendContactUseCase
             $contactDTO->phone,
             $contactDTO->host
         );
-        $contact->addFile($contactDTO->file);
+
+        if($contactDTO->file) {
+            $contact->addFile($contactDTO->file);
+        }
 
         $this->contactRepository->add($contact);
 

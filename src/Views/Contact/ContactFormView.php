@@ -32,7 +32,7 @@
             <label for="message">Mensagem:</label>
             <textarea name="message" id="message" placeholder="Informe a mensagem que deseja nos enviar" required></textarea>
             <label for="file">Anexo:</label>
-            <input type="file"  id="file" name="file" required accept=".doc, .docx, .odt, application/pdf, text/plain">
+            <input type="file"  id="file" name="file" accept=".doc, .docx, .odt, application/pdf, text/plain">
             <input type="submit" value="Enviar">
         </form>
     </section>

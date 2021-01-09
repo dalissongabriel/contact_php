@@ -18,7 +18,7 @@ class Contact
     private DateTimeImmutable $createdAt;
     private string $message;
     private Phone $phone;
-    private File $file;
+    private ?File $file = null;
 
     public function __construct(
         string $name,
@@ -44,6 +44,11 @@ class Contact
         "Mensagem: {$this->message}.";
     }
 
+    public function hasFile(): bool
+    {
+        return !($this->file === null);
+    }
+
     public function getFile(): File
     {
         return $this->file;
@@ -51,7 +56,7 @@ class Contact
 
     public function addFile(UploadedFileInterface $uploadedFile): self
     {
-        $this->file = $uploadedFile;
+        $this->file = new File($uploadedFile);
         return $this;
     }
 

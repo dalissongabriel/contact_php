@@ -3,3 +3,4 @@
 .annotations.txt
 .env
 myTestsReport.log
+/uploads/*

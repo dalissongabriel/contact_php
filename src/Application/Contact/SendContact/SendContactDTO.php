@@ -9,7 +9,7 @@ class SendContactDTO {
     public string $email;
     public string $phone;
     public string $message;
-    public UploadedFileInterface $file;
+    public ?UploadedFileInterface $file = null;
     public string $host;
 
     /**
@@ -18,18 +18,17 @@ class SendContactDTO {
      * @param string $email
      * @param string $phone
      * @param string $message
-     * @param UploadedFileInterface $file
      * @param string $host
      */
-    public function __construct(string $name, string $email, string $phone, string $message, UploadedFileInterface $file,string $host)
+    public function __construct(string $name, string $email, string $phone, string $message,string $host)
     {
         $this->name = $name;
         $this->email = $email;
         $this->phone = $phone;
         $this->message = $message;
-        $this->file = $file;
         $this->host = $host;
     }
+
 
 
 }

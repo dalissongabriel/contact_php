@@ -26,7 +26,6 @@ class ContactPersistController implements RequestHandlerInterface
 
     public function __construct(ContactRepositoryInterface $contactRepository, SendEmailServiceInterface $sendEmailService)
     {
-
         $this->contactRepository = $contactRepository;
         $this->sendEmailService = $sendEmailService;
     }
@@ -49,9 +48,15 @@ class ContactPersistController implements RequestHandlerInterface
         $message = filter_var($body['message'],FILTER_SANITIZE_STRING);
         $email = filter_var($body['email'], FILTER_SANITIZE_STRING);
         $phone = filter_var($body['phone'], FILTER_SANITIZE_STRING);
-        $file = $request->getUploadedFiles()["file"];
         $host = $_SERVER['REMOTE_ADDR'];
 
-        return new SendContactDTO($name, $email, $phone, $message, $file, $host);
+        $contactDto = new SendContactDTO($name, $email, $phone, $message, $host);
+
+        if($request->getUploadedFiles()) {
+            $contactDto->file = $request->getUploadedFiles()["file"];
+        }
+
+
+        return $contactDto;
     }
 }

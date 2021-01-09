@@ -44,6 +44,11 @@ $creator = new ServerRequestCreator(
 /**
  * Shapes the request in the standard interface
  */
+
+if( $_FILES["file"]["tmp_name"] === "" ) {
+    unset($_FILES["file"]);
+}
+
 $request = $creator->fromGlobals();
 
 /**

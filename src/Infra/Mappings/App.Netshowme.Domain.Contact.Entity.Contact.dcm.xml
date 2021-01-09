@@ -7,7 +7,7 @@
         <field name="email"  column="email" type="string"  />
         <field name="message"  column="message" type="string"  />
         <field name="phone"  column="phone" type="string"  />
-        <field name="file"  column="file" type="string"  />
+        <field name="file" column="file" type="string" nullable="true"/>
         <field name="createdAt"  column="createdat" type="datetime">
             <options>
                 <option name="default">CURRENT_TIMESTAMP</option>
