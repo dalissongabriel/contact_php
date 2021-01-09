@@ -4,3 +4,4 @@
 .env
 myTestsReport.log
 /uploads/*
+.phpunit.result.cache
