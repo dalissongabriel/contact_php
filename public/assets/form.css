@@ -57,3 +57,7 @@
     opacity: 0.5;
     cursor: wait;
 }
+
+.required-field {
+    color: red;
+}
