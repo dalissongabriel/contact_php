@@ -19,13 +19,13 @@ class ContactTest extends TestCase
         $name="test nanem";
         $email="test@test.com";
         $message="test message";
-        $phone="(99) 999999999";
+        $phone="(99) 9999-9999";
         $host="127.0.0.1";
 
         $contact = new Contact($name, $email, $message, $phone, $host);
 
         $this->assertSame("test@test.com", (string) $contact->getEmail());
-        $this->assertSame("(99) 999999999", (string) $contact->getPhone());
+        $this->assertSame("(99) 9999-9999", (string) $contact->getPhone());
         $this->stringContains("test message", (string) $contact->getFullMessage());
         $this->stringContains("test nanem", (string) $contact->getFullMessage());
     }
@@ -36,7 +36,7 @@ class ContactTest extends TestCase
         $name="test";
         $email="test@";
         $message="test";
-        $phone="(99) 999999999";
+        $phone="(99) 9999-9999";
         $host="127.0.0.1";
 
         $contact = new Contact($name, $email, $message, $phone, $host);
