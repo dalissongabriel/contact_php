@@ -37,7 +37,11 @@ class ContactPersistController implements RequestHandlerInterface
         $contactDTO = $this->fillContactDto($request);
         $useCase->execute($contactDTO);
 
-        return new Response(200,["Location"=>"/contato"]);
+        if( isset($_SESSION['error']) && $_SESSION['error'] === true ) {
+            return new Response(500,["Location"=>"/contato"]);
+        } else {
+            return new Response(200,["Location"=>"/contato"]);
+        }
     }
 
     private function fillContactDto(ServerRequestInterface $request): SendContactDTO

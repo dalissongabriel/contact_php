@@ -16,6 +16,35 @@ ul {
     list-style-type: none;
 }
 /* MAIN CSS FOR ALL PAGES */
+
+.message-section {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.message-success {
+    color: darkgreen;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 1px solid darkgreen;
+    border-radius: 0.4rem;
+    background: lightgreen;
+    padding: 0.8rem 1.2rem;
+    box-sizing: border-box;
+}
+
+.message-danger {
+    color: darkred;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 1px solid darkred;
+    border-radius: 0.4rem;
+    background: lightcoral;
+    padding: 0.8rem 1.2rem;
+    box-sizing: border-box;
+}
+
 .header {
     position: relative;
     box-sizing: border-box;
@@ -138,3 +167,15 @@ main > section#sobre > p {
     }
 }
 
+.animeDown {
+    opacity: 0;
+    transform: translatey(-20px);
+    animation: animeLeft .7s forwards;
+}
+
+@keyframes animeLeft {
+    to {
+        opacity: 1;
+        transform: initial;
+    }
+}

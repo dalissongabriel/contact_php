@@ -32,6 +32,12 @@ if(!array_key_exists($resource, $routes)) {
     $resource="/errors/404";
 }
 
+/**
+ * Start Session For Flash Messages
+ */
+session_start();
+
+
 $psr17Factory = new Psr17Factory();
 
 $creator = new ServerRequestCreator(

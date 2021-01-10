@@ -34,6 +34,7 @@
         border-radius: 1rem;
         background: url("/assets/img/contact_banner.jpg") no-repeat center center;
         background-size: cover;
+        height: 46rem;
     }
     header h1.main-title {
         font-size: 3rem;

@@ -7,6 +7,7 @@ namespace App\Netshowme\Application\Contact\SendContact;
 use App\Netshowme\Domain\Contact\Entity\Contact;
 use App\Netshowme\Domain\Contact\Repository\ContactRepositoryInterface;
 use App\Netshowme\Domain\Contact\Services\SendEmailServiceInterface;
+use App\Netshowme\Infra\Share\Helpers\FlashMessageTrait;
 use Exception;
 
 class SendContactUseCase
@@ -31,22 +32,37 @@ class SendContactUseCase
     public function execute(SendContactDTO $contactDTO)
     {
         $this->contactDTO = $contactDTO;
+        $contact = null;
+        try {
+            $contact = new Contact(
+                $contactDTO->name,
+                $contactDTO->email,
+                $contactDTO->message,
+                $contactDTO->phone,
+                $contactDTO->host
+            );
+        } catch (Exception $exception) {
+            FlashMessageTrait::setMessage(true,"danger", "Desculpe :( ... Ocorreu um erro ao tentar salvar sua mensagem de contato.");
+            return;
+        }
 
-        $contact = new Contact(
-            $contactDTO->name,
-            $contactDTO->email,
-            $contactDTO->message,
-            $contactDTO->phone,
-            $contactDTO->host
-        );
 
         if($contactDTO->file) {
             $contact->addFile($contactDTO->file);
         }
 
-        $this->contactRepository->add($contact);
+        try {
+            $this->contactRepository->add($contact);
+        } catch (Exception $exception) {
+            FlashMessageTrait::setMessage(true, "danger,","Desculpe :( ... Ocorreu um erro ao tentar salvar sua mensagem de contato.");
+        }
 
-        $this->sendEmailService->send($contact);
+        try {
+            $this->sendEmailService->send($contact);
+            FlashMessageTrait::setMessage(false,"success","Obrigado :) Seu contato foi enviado.");
+        } catch (Exception $exception) {
+            FlashMessageTrait::setMessage(true, "danger","Desculpe :( ... Ocorreu um erro ao tentar enviar sua mensagem de contato.");
+        }
 
     }
 }
